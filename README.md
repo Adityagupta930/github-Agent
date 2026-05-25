@@ -1,4 +1,38 @@
 # github-Agent
 
+An automated GitHub commit agent that commits to your repository every hour — even when your laptop is off.
 
+## Features
+- Automatically adds a newline to `README.md` every hour
+- Runs on **GitHub Actions** — no laptop needed
+- Keeps your GitHub contribution graph active daily
 
+## How it works
+1. GitHub Actions triggers every hour via cron schedule
+2. `auto_commit.py` appends a newline to `README.md`
+3. Changes are committed and pushed automatically
+
+## Project Structure
+```
+├── auto_commit.py      # Main entry point
+├── git_handler.py      # Git operations (commit, push)
+├── file_handler.py     # File operations (append newline)
+└── .github/
+    └── workflows/
+        └── daily_commit.yml  # GitHub Actions workflow
+```
+
+## Setup (Local)
+1. Clone the repo
+2. Set environment variables:
+   ```
+   GITHUB_TOKEN=your_token
+   GITHUB_USERNAME=your_username
+   ```
+3. Run manually:
+   ```
+   python auto_commit.py
+   ```
+
+## Author
+Aditya Gupta
