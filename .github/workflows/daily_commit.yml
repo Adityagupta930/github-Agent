@@ -2,8 +2,10 @@ name: Daily Commit
 
 on:
   schedule:
-    - cron: '30 5 * * *'   # Subah 11 baje IST (UTC+5:30)
-    - cron: '30 17 * * *'  # Raat 11 baje IST (UTC+5:30)
+    - cron: '0 * * * *'  # Har 1 ghante me
+
+permissions:
+  contents: write
 
 jobs:
   commit:
