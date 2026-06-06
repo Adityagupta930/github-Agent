@@ -12,5 +12,3 @@ def append_newline(filepath):
 
 
 
-
-
