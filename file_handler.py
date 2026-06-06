@@ -9,4 +9,3 @@ def append_newline(filepath):
     with open(safe_path, "a") as f:
         f.write("\n")
 
-
