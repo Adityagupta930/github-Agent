@@ -8,4 +8,3 @@ def append_newline(filepath):
         raise ValueError("Invalid file path")
     with open(safe_path, "a") as f:
         f.write("\n")
-
