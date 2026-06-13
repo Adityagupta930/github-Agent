@@ -7,6 +7,8 @@ def append_newline(filepath):
     if not safe_path.startswith(BASE_DIR):
         raise ValueError("Invalid file path")
     with open(safe_path, "a") as f:
+
+        
         f.write("\n")
 
 
