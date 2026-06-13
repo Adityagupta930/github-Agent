@@ -7,6 +7,7 @@ An automated GitHub commit agent that commits to your repository every hour — 
 - Runs on **GitHub Actions** — no laptop needed
 - Keeps your GitHub contribution graph active daily
 
+
 ## How it works
 1. GitHub Actions triggers every hour via cron schedule
 2. `auto_commit.py` appends a newline to `README.md`
@@ -36,6 +37,56 @@ An automated GitHub commit agent that commits to your repository every hour — 
 
 ## Author
 Aditya Gupta
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
