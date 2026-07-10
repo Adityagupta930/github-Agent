@@ -21,4 +21,5 @@ jobs:
           git config user.name "Aditya"
           git add README.md
           git commit -m "auto commit: $(date '+%Y-%m-%d %H:%M:%S')"
+          git pull origin main --rebase
           git push origin main
