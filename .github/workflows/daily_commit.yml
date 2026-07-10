@@ -2,7 +2,7 @@ name: Daily Commit
 
 on:
   schedule:
-    - cron: '0 * * * *'  # Har ghante
+    - cron: '*/30 * * * *'  # Har 30 minute me
   workflow_dispatch:  # Manual trigger bhi kar sako
 
 permissions:
