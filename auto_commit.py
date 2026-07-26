@@ -15,7 +15,7 @@ original_url = get_remote_url()
 auth_url = original_url.replace("https://", f"https://{USERNAME}:{TOKEN}@")
 set_remote_url(auth_url)
 
-append_newline(README)
+append_newline()
 
 date_str = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
 commit_and_push(README, f"daily commit: {date_str}")

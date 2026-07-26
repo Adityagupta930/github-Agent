@@ -1,15 +1,7 @@
 import os
-BASE_DIR = os.path.dirname(os.path.abspath(__file__))
 
-def append_newline(filepath):
+README_PATH = os.path.join(os.path.dirname(os.path.abspath(__file__)), "README.md")
 
-    safe_path = os.path.realpath(os.path.join(BASE_DIR, filepath))
-    if not safe_path.startswith(BASE_DIR):
-        raise ValueError("Invalid file path")
-    with open(safe_path, "a") as f:
+def append_newline():
+    with open(README_PATH, "a") as f:
         f.write("\n")
-
-
-
-
-        
