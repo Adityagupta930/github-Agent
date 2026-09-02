@@ -6,6 +6,7 @@ An automated GitHub commit agent that commits to your repository every hour — 
 - Automatically adds a newline to `README.md` every hour
 - Runs on **GitHub Actions** — no laptop needed
 - Keeps your GitHub contribution graph active daily
+- 
 
 
 ## How it works
