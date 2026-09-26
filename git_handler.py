@@ -1,16 +1,12 @@
 import subprocess
 import shutil
 
-GIT = shutil.which("git")  # full path resolve karo
+GIT = shutil.which("git")
 
-def get_remote_url():
-    result = subprocess.run([GIT, "remote", "get-url", "origin"], capture_output=True, text=True)
-    return result.stdout.strip()
-
-def set_remote_url(url):
-    subprocess.run([GIT, "remote", "set-url", "origin", url])
+if GIT is None:
+    raise RuntimeError("Git executable nahi mila; Git install/PATH check karo")
 
 def commit_and_push(filename, message):
-    subprocess.run([GIT, "add", filename])
-    subprocess.run([GIT, "commit", "-m", message])
-    subprocess.run([GIT, "push"])
+    subprocess.run([GIT, "add", filename], check=True)
+    subprocess.run([GIT, "commit", "-m", message], check=True)
+    subprocess.run([GIT, "push"], check=True)

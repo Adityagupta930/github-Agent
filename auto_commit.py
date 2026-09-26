@@ -1,24 +1,18 @@
 import os
+import sys
 from datetime import datetime
 from file_handler import append_newline
-from git_handler import get_remote_url, set_remote_url, commit_and_push
+from git_handler import commit_and_push
 
 README = "README.md"
-TOKEN = os.environ.get("GITHUB_TOKEN")
-USERNAME = os.environ.get("GITHUB_USERNAME")
 
-if not TOKEN or not USERNAME:
-    print("GITHUB_TOKEN aur GITHUB_USERNAME environment variables set karo")
-    exit(1)
+try:
+    append_newline()
 
-original_url = get_remote_url()
-auth_url = original_url.replace("https://", f"https://{USERNAME}:{TOKEN}@")
-set_remote_url(auth_url)
+    date_str = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
+    commit_and_push(README, f"daily commit: {date_str}")
+except Exception as error:
+    print(f"Commit/push failed: {error}", file=sys.stderr)
+    raise SystemExit(1) from error
 
-append_newline()
-
-date_str = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
-commit_and_push(README, f"daily commit: {date_str}")
-
-set_remote_url(original_url)
-print(f"Commit ho gaya: {date_str}")
+print(f"Commit aur push successful: {date_str}")
