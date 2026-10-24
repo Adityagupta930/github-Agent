@@ -2,14 +2,9 @@ name: Daily Commit
 
 on:
   schedule:
-    - cron: '0 0 * * *'   # Raat 12 baje - 8 commits
-    - cron: '0 3 * * *'   # Raat 3 baje - 6 commits
-    - cron: '0 6 * * *'   # Subah 6 baje - 5 commits
-    - cron: '0 9 * * *'   # Subah 9 baje - 7 commits
-    - cron: '0 12 * * *'  # Dopahar 12 baje - 8 commits
-    - cron: '0 15 * * *'  # Dopahar 3 baje - 6 commits
-    - cron: '0 18 * * *'  # Shaam 6 baje - 7 commits
-    - cron: '0 21 * * *'  # Raat 9 baje - 5 commits
+    - cron: '0 4 * * *'   # Subah (IST 9:30)
+    - cron: '0 10 * * *'  # Dopahar (IST 3:30)
+    - cron: '0 16 * * *'  # Shaam (IST 9:30 PM)
   workflow_dispatch:
 
 permissions:
@@ -26,12 +21,11 @@ jobs:
           git config user.email "ag161158@gmail.com"
           git config user.name "Aditya"
           git pull origin main --rebase
-          COUNT=$(( RANDOM % 4 + 5 ))
-          echo "Aaj $COUNT commits honge"
+          COUNT=$(( RANDOM % 3 + 3 ))
           for i in $(seq 1 $COUNT); do
             echo "" >> README.md
             git add README.md
-            git commit -m "auto commit: $(date '+%Y-%m-%d %H:%M:%S') [$i/$COUNT]"
+            git commit -m "auto commit: $(date '+%Y-%m-%d %H:%M:%S') [$i]"
             sleep 1
           done
           git push origin main
